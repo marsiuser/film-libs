@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router  from 'vue-router'
+import store from '../store'
 import Home from '../assets/pages/Home'
 import Login from '../assets/pages/auth/Login'
 import Registration from '../assets/pages/auth/Registration'
@@ -12,12 +13,18 @@ export default new Router({
         {
             path: '/',
             name:'home',
-            component: Home
+            component: Home,
+            beforeEnter(to, from, next){
+                store.getters.checkUser ? next() : next('/login')
+            }
         },
         {
             path: '/task',
             name:'task',
-            component: Task
+            component: Task,
+            beforeEnter(to, from, next){
+                store.getters.checkUser ? next() : next('/login')
+            }
         },
         {
             path: '/login',

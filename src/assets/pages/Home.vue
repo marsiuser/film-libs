@@ -65,24 +65,24 @@
           mdi-plus
         </v-icon>
       </v-btn>
-      <div class="tag-new" v-if="tagNew">
+      <transition enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutUp" class="tag-new" v-if="tagNew">
          <v-text-field class="tag-new__text" label="New tag" v-model="tagTitle" @keyup.enter="newTag"></v-text-field>
          <v-btn class="tag-new__btn" @click="newTag">
           Send
         </v-btn>
+      </transition>
+      <transition-group class="tag-list" enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutDown">
+        <div class="tag-item" v-for="tag in tags" :key="tag.title">
+          <v-chip @click="addTagUsed(tag)"
+            :class="{active: tag.use}"
+            close
+            text-color="white"
+            @click:close="closeTag"
+          >
+            {{tag.title}}
+          </v-chip>
       </div>
-      <div class="tag-list">
-         <div class="tag-item" v-for="tag in tags" :key="tag.title">
-            <v-chip @click="addTagUsed(tag)"
-              :class="{active: tag.use}"
-              close
-              text-color="white"
-              @click:close="closeTag"
-            >
-              {{tag.title}}
-            </v-chip>
-         </div>
-      </div>
+      </transition-group>
       <p>{{ tagsUsed }}</p>
       <v-btn class="send-all" @click="newTask()"
         rounded

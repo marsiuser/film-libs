@@ -13,10 +13,11 @@
                             <span></span>
                         </label>
                         <ul class="header-menu__list menu__box">
-                            <li><router-link class="menu__item" to="/">Home</router-link></li>
-                            <li><router-link class="menu__item" to="/task">Tasks</router-link></li>
+                            <li v-for="link in links" :key="link.title"><router-link class="menu__item" :to="`${link.url}`">{{ link.title }}</router-link></li>
+                            <li v-if="checkUser" @click="logout()"><span class="menu__item">Log Out</span></li>
+                            <!-- <li><router-link class="menu__item" to="/task">Tasks</router-link></li>
                             <li><router-link class="menu__item" to="/login">Login</router-link></li>
-                            <li><router-link class="menu__item" to="/registration">Registration</router-link></li>
+                            <li><router-link class="menu__item" to="/registration">Registration</router-link></li> -->
                         </ul>
                     </nav>
                 </div>
@@ -30,7 +31,34 @@
 <script>
 export default {
   name: 'Header',
+   data(){
+    return{
+    }
+  },
   components: {
+  },
+  methods:{
+    logout(){
+        this.$store.dispatch('logoutUser')
+        this.$router.push('/login')
+    }
+  },
+  computed:{
+     checkUser () {
+      return this.$store.getters.checkUser
+    },
+    links () {
+      if (this.checkUser) {
+        return [
+          {title: 'Home', url: '/'},
+          {title: 'Library', url: '/task'}
+        ]
+      }
+      return [
+        {title: 'Login', url: '/login'},
+        {title: 'Registration', url: '/registration'}
+      ]
+    },
   }
 }
 </script>
@@ -58,10 +86,13 @@ export default {
 
 		&__list {
             display: flex;
-            justify-content: space-between;
-            a{
+            justify-content: flex-end;
+            a,span{
                 color: #000;
                 font-size: 16px;
+                cursor: pointer;
+                display: block;
+                margin-right: 40px;
                 &:hover{
                     color:#ff5252;
                     transition: all 0.3s;

@@ -53,16 +53,16 @@
                 </div>
                 <v-btn class="auth-submit"
                   type="submit" 
-                  :disabled="submitStatus === 'PENDING'"
                   elevation="2"
                   large
                   rounded>
-                  Log in
+                  <span v-if="loading">Loading...</span>
+                  <span v-else>Log in</span>
                 </v-btn>
                 <div class="auth-results">
                     <p class="auth-result" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
                     <p class="auth-result result-bag" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-                    <p class="auth-result" v-if="submitStatus === 'PENDING'">Sending...</p>
+                     <p class="auth-result result-bag" v-else>{{submitStatus}}</p>
                 </div>
                 <div class="auth-login">
                   <span>Do you have account?</span>
@@ -111,13 +111,26 @@ export default {
           email:this.email,
           password: this.password,
         }
-        console.log(user);
-        // do your submit logic here
-        this.submitStatus = 'PENDING'
-        setTimeout(() => {
+        this.$store.dispatch('registerUser', user)
+        .then(() =>{
+          console.log('REGISTER!')
           this.submitStatus = 'OK'
-        }, 500)
+          this.$router.push('/')
+        })
+        .catch(err =>{
+          this.submitStatus = err.message
+        })
+
+        // this.submitStatus = 'PENDING'
+        // setTimeout(() => {
+        //   this.submitStatus = 'OK'
+        // }, 500)
       }
+    }
+  },
+  computed:{
+    loading(){
+      return this.$store.getters.loading
     }
   }
 }

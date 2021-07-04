@@ -17,6 +17,7 @@ export default {
 
 <style lang="scss">
 @import './assets/styles/style.css';
+@import './assets/styles/animations.css';
 
 $color: rgb(184, 23, 23);
 

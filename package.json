@@ -10,6 +10,7 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "core-js": "^3.6.5",
+    "firebase": "^8.7.0",
     "reset-css": "^5.0.1",
     "validate": "^5.1.0",
     "vue": "^2.6.11",
