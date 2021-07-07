@@ -117,7 +117,7 @@
           mdi-plus
         </v-icon>
       </v-btn>
-      <transition-group enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutUp" class="tag-new" v-if="tagNew">
+      <div class="tag-new" v-if="tagNew">
          <div class="auth-form__wrap">
             <div class="auth-form__item tag-new__text">
                 <input  v-model="tagTitle"
@@ -132,7 +132,7 @@
          <v-btn class="tag-new__btn" @click="newTag">
           Send
         </v-btn>
-      </transition-group>
+      </div>
       <transition-group class="tag-list" enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutDown">
         <div class="tag-item" v-for="tag in tags" :key="tag.title">
           <v-chip @click="addTagUsed(tag)"
