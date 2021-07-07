@@ -3,7 +3,7 @@
    <div class="container">
       <div class="auth">
         <div class="auth-banner">
-          <h2>Banner</h2>
+            <img src="../../img/cinema.jpg" alt="Film Library">
         </div>
         <div class="auth-registration">
           <h1 class="page-name">Welcome to Film Library ! <img src="../../img/hi.svg" alt="welcome"></h1>
@@ -136,26 +136,29 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 .auth {
   display: flex;
   justify-content: space-between;
   .auth-banner {
-    width: 48%;
+    width: 46%;
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
   }
   .auth-login{
     margin-top: 20px;
     display: flex;
     justify-content: center;
     a{
-      color: #ffbc36;
+      color: #fe6f21;
       font-weight: 600;
       transition: 0.2s;
       display: block;
       margin-left: 7px;
       &:hover{
-        color: #ff5252;
+        color: #787ae7;
         transition: 0.2s;
       }
     }
@@ -167,7 +170,7 @@ export default {
       font-size: 14px;
     }
     .result-bag{
-      color: #ff5252 !important;
+      color: #787ae7!important;
     }
   }
   .auth-registration {
@@ -190,7 +193,7 @@ export default {
      }
   }
   .auth-submit{
-      background-color: #ff5252 !important;
+      background-color: #787ae7!important;
       color: #fff !important;
       font-family: 'Nunito', sans-serif;
       text-transform: initial;
@@ -216,7 +219,8 @@ export default {
 		&__item {
         position:relative;
         margin:0 auto;
-        input {
+        input,
+        textarea {
           width: 100%;
           position:relative;
           outline:0;
@@ -226,6 +230,9 @@ export default {
           transition:all .5s ease;
           border:1px solid #eaeaea;
       }
+      textarea{
+        min-height: 100px;
+      }
       label {
         position:absolute;
         left: 20px;
@@ -234,15 +241,23 @@ export default {
         transition:all .3s ease;
         color:#000;
       }
+      .label-textarea{
+        top: 25px;
+        transform: none;
+      }
       input:focus,
-      input:valid{
+      input:valid,
+      textarea:focus,
+      textarea:valid{
         background:#fff;
         -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
         -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
       }
       input:focus ~ label,
-      input:valid ~ label {
+      input:valid ~ label,
+      textarea:focus ~ label,
+      textarea:valid ~ label {
         transform: translate3d(-15px, -47px, 0px);
         font-size: 14px;
         font-weight:700;

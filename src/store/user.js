@@ -5,7 +5,6 @@ import User from './user_help'
 export default{
     state: {
         user:null,
-
     },
     mutations:{
         setUser(state, payload){
@@ -50,7 +49,6 @@ export default{
         logoutUser({commit}){
             firebase.auth().signOut()
             commit('setUser', null)
-            this.$router.push('/login')
         }
     },
     getters:{

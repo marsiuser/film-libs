@@ -4,7 +4,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="header-logo">
-                    <router-link to="/">Film Library</router-link>
+                    <router-link to="/"><img src="../assets/img/logo3.svg" alt="logo"></router-link>
                 </div>
                 <div class="header-menu">
                     <nav  class="hamburger-menu">
@@ -70,9 +70,13 @@ export default {
     .header-wrap {
         display: flex;
         justify-content: space-between;
-        padding: 20px 0px;
+        align-items: center;
+        padding: 4px 0px;
     }
     .header-logo {
+        img{
+            max-width: 160px;
+        }
         a{
             font-weight: 700;
             color: #000;
@@ -93,8 +97,9 @@ export default {
                 cursor: pointer;
                 display: block;
                 margin-right: 40px;
+                font-weight: 600;
                 &:hover{
-                    color:#ff5252;
+                    color:#787ae7;
                     transition: all 0.3s;
                 }
             }

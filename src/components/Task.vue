@@ -85,11 +85,17 @@ export default {
       text-decoration: line-through;
       color: rgb(128, 128, 128);
     }
+    .v-icon.v-icon{
+      color: #ffa51f;
+    }
   }
   .tag-list{
     .theme--light.v-chip {
-      background: #64CCCC !important;
+      background: #ffa51f !important;
       color: #fff;
+    }
+    .mdi-close-circle::before{
+      color: #fff !important;
     }
   }
   .task-filter{
@@ -98,7 +104,11 @@ export default {
     max-width: 320px;
     width: 100%;
     .active{
-      background-color: crimson !important;
+      background-color: #ffa636  !important;
+      color: #fff !important;
+    }
+    .v-btn{
+      background-color: #ffa51f !important;
       color: #fff !important;
     }
   }

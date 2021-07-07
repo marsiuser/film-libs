@@ -3,7 +3,7 @@
    <div class="container">
       <div class="auth">
         <div class="auth-banner">
-          <h2>Banner</h2>
+             <img src="../../img/cinema.jpg" alt="Film Library">
         </div>
         <div class="auth-registration">
           <h1 class="page-name">Welcome to Film Library ! <img src="../../img/hi.svg" alt="welcome"></h1>
@@ -119,20 +119,24 @@ export default {
   display: flex;
   justify-content: space-between;
   .auth-banner {
-    width: 48%;
+      width: 46%;
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
   }
   .auth-login{
     margin-top: 20px;
     display: flex;
     justify-content: center;
     a{
-      color: #ffbc36;
+      color: #fe6f21;
       font-weight: 600;
       transition: 0.2s;
       display: block;
       margin-left: 7px;
       &:hover{
-        color: #ff5252;
+        color: #787ae7;
         transition: 0.2s;
       }
     }
@@ -144,7 +148,7 @@ export default {
       font-size: 14px;
     }
     .result-bag{
-      color: #ff5252 !important;
+      color: #787ae7!important;
     }
   }
   .auth-registration {
@@ -167,7 +171,7 @@ export default {
      }
   }
   .auth-submit{
-      background-color: #ff5252 !important;
+      background-color: #787ae7!important;
       color: #fff !important;
       font-family: 'Nunito', sans-serif;
       text-transform: initial;

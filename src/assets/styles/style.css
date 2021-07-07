@@ -27,3 +27,15 @@ a{
 textarea{
     resize: unset;
 }
+
+.input{
+    width: 100%;
+    position:relative;
+    outline:0;
+    background:#fff;
+    padding:15px 25px;
+    border-radius:5px;
+    transition:all .5s ease;
+    border:1px solid #eaeaea;
+    margin-bottom: 30px;
+}
